@@ -35,7 +35,7 @@ min_foul = 0;
 max_rebound = 30;
 min_rebound = 0;
 
-st.write('__Enter player statistics__')
+st.write('__Input player statistics__')
 height = st.slider('Height (in inch)', max_height, min_height, step=0.1)
 playtime = st.slider('Playtime (in min)', max_playtime, min_playtime, step=1)
 assist = st.slider('Number of assist', max_assist, min_assist, step=1)
@@ -105,6 +105,8 @@ if no_prediction == 1:
         if y_pred_process[0,i] == 1:
             index.append(i);
     st.markdown(f"""The player can play in __*{pos[index[0]]}*__ position""")
+elif: no_prediction == 0:
+    st.markdown(f"""There is no distinct player position for given statistics""")
 else:
     for i in range(0,5):
         if y_pred_process[0,i] == 1:
