@@ -6,7 +6,10 @@ from keras.models import model_from_json
 import matplotlib.pyplot as plt
 
 st.title('Predicting the Assigned Position of NBA Players')
-st.image("./nba_poster.jpg", width=500, clamp="bottom")
+st.image("./introduction_nba.png")
+
+st.write('__Five important player positions__')
+st.image("./player_position.png")
 
 max_height = 87.0;
 min_height = 69.0;
@@ -62,8 +65,8 @@ test_data = np.zeros((1,7), dtype = float);
 test_data[0,:] = [height_norm, assist_norm, block_norm, two_pnt_norm, three_pnt_norm, foul_norm, rebound_norm];
 
 y_predict = loaded_model.predict(test_data);
-st.dataframe(test_data)
-st.dataframe(y_predict)
+#st.dataframe(test_data)
+#st.dataframe(y_predict)
 
 plot_data = {'C':y_predict[0,0], 
              'PF':y_predict[0,1],
@@ -91,7 +94,7 @@ for i in range(0,5):
     if (y_predict[0,i] < 0.4):
         y_pred_process[0,i] = 0;
 
-st.dataframe(y_pred_process)
+#st.dataframe(y_pred_process)
 
 pos = ['Center', 'Power Forward', "Small Forward", "Point Guard", "Shooting Guard"];
 no_prediction = np.count_nonzero(y_pred_process == 1)
@@ -110,4 +113,4 @@ else:
 
 
 
-st.markdown(f"""Number of prediction = {no_prediction}""")
+#st.markdown(f"""Number of prediction = {no_prediction}""")
