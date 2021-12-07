@@ -1,7 +1,6 @@
 ﻿from imghdr import tests
 import streamlit as st
 import numpy as np
-pip install tensorflow
 import keras
 from keras.models import model_from_json
 import matplotlib.pyplot as plt
