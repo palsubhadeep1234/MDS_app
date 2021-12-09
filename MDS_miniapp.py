@@ -56,13 +56,24 @@ st.write('<p class = "bfont">Enter player statistics</p>', unsafe_allow_html=Tru
 
 st.write('<p class = "mfont">Height (in inch)</p>', unsafe_allow_html=True)
 height = st.slider('', max_height, min_height, step=0.1)
-#playtime = st.slider('Playtime (in min)', max_playtime, min_playtime, step=1)
-assist = st.slider('Number of assist', max_assist, min_assist, step=1)
-block = st.slider('Number of block', max_block, min_block, step=1)
-two_pnt = st.slider('Number of 2-pointers scored', max_two_pnt, min_two_pnt, step=1)
-three_pnt = st.slider('Number of 3-pointers scored', max_three_pnt, min_three_pnt, step=1)
-foul = st.slider('Number of personal foul', max_foul, min_foul, step=1)
-rebound = st.slider('Number of total rebound', max_rebound, min_rebound, step=1)
+
+st.write('<p class = "mfont">Number of assist</p>', unsafe_allow_html=True)
+assist = st.slider('', max_assist, min_assist, step=1)
+
+st.write('<p class = "mfont">Number of block</p>', unsafe_allow_html=True)
+block = st.slider('', max_block, min_block, step=1)
+
+st.write('<p class = "mfont">Number of 2-pointers scored</p>', unsafe_allow_html=True)
+two_pnt = st.slider('', max_two_pnt, min_two_pnt, step=1)
+
+st.write('<p class = "mfont">Number of 3-pointers scored</p>', unsafe_allow_html=True)
+three_pnt = st.slider('', max_three_pnt, min_three_pnt, step=1)
+
+st.write('<p class = "mfont">Number of personal foul</p>', unsafe_allow_html=True)
+foul = st.slider('', max_foul, min_foul, step=1)
+
+st.write('<p class = "mfont">Number of total rebound</p>', unsafe_allow_html=True)
+rebound = st.slider('', max_rebound, min_rebound, step=1)
 
 
 json_file = open('model.json', 'r')
