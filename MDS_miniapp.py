@@ -100,15 +100,15 @@ pos = ['Center', 'Power Forward', "Small Forward", "Point Guard", "Shooting Guar
 no_prediction = np.count_nonzero(y_pred_process == 1)
 
 index = [];
-if no_prediction == 1:
+if  np.count_nonzero(test_data == 0) == 6:
+    st.markdown(f"""PLease enter player statistics""")
+elif no_prediction == 1:
     for i in range(0,5):
         if y_pred_process[0,i] == 1:
             index.append(i);
     st.markdown(f"""The player can play in __*{pos[index[0]]}*__ position""")
 elif no_prediction == 0:
     st.markdown(f"""There is no distinct player position for given statistics""")
-elif  np.count_nonzero(test_data == 0) == 6:
-    st.markdown(f"""PLease enter player statistics""")
 else:
     for i in range(0,5):
         if y_pred_process[0,i] == 1:
