@@ -146,8 +146,7 @@ elif no_prediction == 1:
     for i in range(0,5):
         if y_pred_process[0,i] == 1:
             index.append(i);
-    # st.markdown(f"""The player can play in __*{pos[index[0]]}*__ position""")
-    st.markdown('<p class = "mfont"> The player can play in <span id="pos[index[0]]"></span></p>', unsafe_allow_html=True)
+    st.markdown(f"""The player can play in __*{pos[index[0]]}*__ position""")
 elif no_prediction == 0:
     st.markdown(f"""There is no distinct player position for given statistics""")
 else:
