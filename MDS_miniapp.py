@@ -35,8 +35,9 @@ min_foul = 0;
 max_rebound = 30;
 min_rebound = 0;
 
-st.write('__nter player statistics__')
-height = st.slider('Height (in inch)', max_height, min_height, step=0.1)
+st.write('__Enter player statistics__')
+st.write('__Height (in inch)__')
+height = st.slider('', max_height, min_height, step=0.1)
 #playtime = st.slider('Playtime (in min)', max_playtime, min_playtime, step=1)
 assist = st.slider('Number of assist', max_assist, min_assist, step=1)
 block = st.slider('Number of block', max_block, min_block, step=1)
