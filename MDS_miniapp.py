@@ -1,4 +1,4 @@
-﻿from imghdr import tests
+﻿#Importing necessary packages
 import streamlit as st
 import numpy as np
 import keras
@@ -154,7 +154,3 @@ else:
         if y_pred_process[0,i] == 1:
             index.append(i);
     st.markdown(f"""The player can play either in __*{pos[index[1]]}*__ or __*{pos[index[0]]}*__ position""")
-
-
-
-#st.markdown(f"""Number of prediction = {no_prediction}""")
