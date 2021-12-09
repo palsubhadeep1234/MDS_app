@@ -57,10 +57,10 @@ st.write('<p class = "bfont">Enter player statistics</p>', unsafe_allow_html=Tru
 st.write('<p class = "mfont">Height (in inch)</p>', unsafe_allow_html=True)
 height = st.slider('', max_height, min_height, step=0.1)
 
-st.write('<p class = "mfont">Number of assist</p>', unsafe_allow_html=True)
+st.write('<p class = "mfont">Number of assists</p>', unsafe_allow_html=True)
 assist = st.slider('', max_assist, min_assist, step=1)
 
-st.write('<p class = "mfont">Number of block</p>', unsafe_allow_html=True)
+st.write('<p class = "mfont">Number of blocks</p>', unsafe_allow_html=True)
 block = st.slider('', max_block, min_block, step=1)
 
 st.write('<p class = "mfont">Number of 2-pointers scored</p>', unsafe_allow_html=True)
@@ -69,10 +69,10 @@ two_pnt = st.slider('', max_two_pnt, min_two_pnt, step=1)
 st.write('<p class = "mfont">Number of 3-pointers scored</p>', unsafe_allow_html=True)
 three_pnt = st.slider('', max_three_pnt, min_three_pnt, step=1)
 
-st.write('<p class = "mfont">Number of personal foul</p>', unsafe_allow_html=True)
+st.write('<p class = "mfont">Number of personal fouls</p>', unsafe_allow_html=True)
 foul = st.slider('', max_foul, min_foul, step=1)
 
-st.write('<p class = "mfont">Number of total rebound</p>', unsafe_allow_html=True)
+st.write('<p class = "mfont">Number of total rebounds</p>', unsafe_allow_html=True)
 rebound = st.slider('', max_rebound, min_rebound, step=1)
 
 
@@ -129,21 +129,23 @@ for i in range(0,5):
 pos = ['Center', 'Power Forward', "Small Forward", "Point Guard", "Shooting Guard"];
 no_prediction = np.count_nonzero(y_pred_process == 1)
 
+st.write('<p class = "mfont">Number of total rebounds</p>', unsafe_allow_html=True)
+
 index = [];
 if  np.count_nonzero(test_data == 0) > 5:
-    st.markdown(f"""PLease enter player statistics""")
+    st.markdown('<p class = "bfont">PLease enter player statistics</p>', unsafe_allow_html=True)
 elif no_prediction == 1:
     for i in range(0,5):
         if y_pred_process[0,i] == 1:
             index.append(i);
-    st.markdown(f"""The player can play in __*{pos[index[0]]}*__ position""")
+    st.markdown('<p class = "bfont">The player can play in __*{pos[index[0]]}*__ position</p>', unsafe_allow_html=True)
 elif no_prediction == 0:
-    st.markdown(f"""There is no distinct player position for given statistics""")
+    st.markdown('<p class = "bfont">There is no distinct player position for given statistics</p>', unsafe_allow_html=True)
 else:
     for i in range(0,5):
         if y_pred_process[0,i] == 1:
             index.append(i);
-    st.markdown(f"""The player can play either in __*{pos[index[1]]}*__ or __*{pos[index[0]]}*__ position""")
+    st.markdown('<p class = "bfont">TThe player can play either in __*{pos[index[1]]}*__ or __*{pos[index[0]]}*__ position</p>', unsafe_allow_html=True)
 
 
 
