@@ -129,23 +129,23 @@ for i in range(0,5):
 pos = ['Center', 'Power Forward', "Small Forward", "Point Guard", "Shooting Guard"];
 no_prediction = np.count_nonzero(y_pred_process == 1)
 
-st.write('<p class = "mfont">Number of total rebounds</p>', unsafe_allow_html=True)
+
 
 index = [];
 if  np.count_nonzero(test_data == 0) > 5:
-    st.markdown('<p class = "bfont">PLease enter player statistics</p>', unsafe_allow_html=True)
+    st.markdown(f"""PLease enter player statistics""")
 elif no_prediction == 1:
     for i in range(0,5):
         if y_pred_process[0,i] == 1:
             index.append(i);
-    st.markdown('<p class = "bfont">The player can play in __*{pos[index[0]]}*__ position</p>', unsafe_allow_html=True)
+    st.markdown(f"""The player can play in __*{pos[index[0]]}*__ position""")
 elif no_prediction == 0:
-    st.markdown('<p class = "bfont">There is no distinct player position for given statistics</p>', unsafe_allow_html=True)
+    st.markdown(f"""There is no distinct player position for given statistics""")
 else:
     for i in range(0,5):
         if y_pred_process[0,i] == 1:
             index.append(i);
-    st.markdown('<p class = "bfont">TThe player can play either in __*{pos[index[1]]}*__ or __*{pos[index[0]]}*__ position</p>', unsafe_allow_html=True)
+    st.markdown(f"""The player can play either in __*{pos[index[1]]}*__ or __*{pos[index[0]]}*__ position""")
 
 
 
