@@ -100,7 +100,7 @@ pos = ['Center', 'Power Forward', "Small Forward", "Point Guard", "Shooting Guar
 no_prediction = np.count_nonzero(y_pred_process == 1)
 
 index = [];
-if  np.count_nonzero(test_data == 0) == 6:
+if  np.count_nonzero(test_data == 0) > 5:
     st.markdown(f"""PLease enter player statistics""")
 elif no_prediction == 1:
     for i in range(0,5):
