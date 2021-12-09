@@ -11,6 +11,16 @@ st.image("./introduction_nba.png")
 st.write('__Five important player positions__')
 st.image("./player_position.png")
 
+st.markdown("""
+<style>
+.bfont {
+    font-size:40px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
+
 max_height = 87.0;
 min_height = 69.0;
 
@@ -35,7 +45,7 @@ min_foul = 0;
 max_rebound = 30;
 min_rebound = 0;
 
-st.write('__Enter player statistics__')
+st.write('<p class = "bfont">Enter player statistics</p>', unsafe_allow_html=True)
 st.write('__Height (in inch)__')
 height = st.slider('', max_height, min_height, step=0.1)
 #playtime = st.slider('Playtime (in min)', max_playtime, min_playtime, step=1)
