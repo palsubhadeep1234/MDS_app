@@ -19,7 +19,14 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
+st.markdown("""
+<style>
+.mfont {
+    font-size:20px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 max_height = 87.0;
 min_height = 69.0;
@@ -46,7 +53,8 @@ max_rebound = 30;
 min_rebound = 0;
 
 st.write('<p class = "bfont">Enter player statistics</p>', unsafe_allow_html=True)
-st.write('__Height (in inch)__')
+
+st.write('<p class = "bfont">Height (in inch)</p>', unsafe_allow_html=True)
 height = st.slider('', max_height, min_height, step=0.1)
 #playtime = st.slider('Playtime (in min)', max_playtime, min_playtime, step=1)
 assist = st.slider('Number of assist', max_assist, min_assist, step=1)
