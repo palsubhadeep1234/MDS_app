@@ -54,7 +54,7 @@ min_rebound = 0;
 
 st.write('<p class = "bfont">Enter player statistics</p>', unsafe_allow_html=True)
 
-st.write('<p class = "bfont">Height (in inch)</p>', unsafe_allow_html=True)
+st.write('<p class = "mfont">Height (in inch)</p>', unsafe_allow_html=True)
 height = st.slider('', max_height, min_height, step=0.1)
 #playtime = st.slider('Playtime (in min)', max_playtime, min_playtime, step=1)
 assist = st.slider('Number of assist', max_assist, min_assist, step=1)
