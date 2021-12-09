@@ -11,6 +11,7 @@ st.image("./introduction_nba.png")
 st.write('__Five important player positions__')
 st.image("./player_position.png")
 
+#Defining font sizez
 st.markdown("""
 <style>
 .bfont {
@@ -27,6 +28,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+#Writing maximum and minimum values to normalize player input stats
 
 max_height = 87.0;
 min_height = 69.0;
@@ -52,6 +54,8 @@ min_foul = 0;
 max_rebound = 30;
 min_rebound = 0;
 
+#Getting inputs from users
+
 st.write('<p class = "bfont">Enter player statistics</p>', unsafe_allow_html=True)
 
 st.write('<p class = "mfont">Height (in inch)</p>', unsafe_allow_html=True)
@@ -76,6 +80,7 @@ st.write('<p class = "mfont">Number of total rebounds</p>', unsafe_allow_html=Tr
 rebound = st.slider('', max_rebound, min_rebound, step=1)
 
 
+#Loading the NN model and weights
 json_file = open('model.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
@@ -83,6 +88,7 @@ loaded_model = model_from_json(loaded_model_json)
 # load weights into new model
 loaded_model.load_weights("MDS_model.h5")
 
+#Normalizing input data
 height_norm = (height-min_height)/(max_height - min_height);
 assist_norm = (assist/(max_assist - min_assist));
 block_norm = (block/(max_block - min_block));
@@ -94,10 +100,12 @@ rebound_norm = (rebound/(max_rebound - min_rebound));
 test_data = np.zeros((1,7), dtype = float);
 test_data[0,:] = [height_norm, assist_norm, block_norm, two_pnt_norm, three_pnt_norm, foul_norm, rebound_norm];
 
+#Predicting output value using trained weights
 y_predict = loaded_model.predict(test_data);
 #st.dataframe(test_data)
 #st.dataframe(y_predict)
 
+#Plotting probability of player position
 plot_data = {'C':y_predict[0,0], 
              'PF':y_predict[0,1],
              'SF':y_predict[0,2],
@@ -129,7 +137,7 @@ for i in range(0,5):
 pos = ['Center', 'Power Forward', "Small Forward", "Point Guard", "Shooting Guard"];
 no_prediction = np.count_nonzero(y_pred_process == 1)
 
-
+#Printing most probable player position
 
 index = [];
 if  np.count_nonzero(test_data == 0) > 5:
